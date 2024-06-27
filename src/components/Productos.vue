@@ -46,7 +46,7 @@ watchEffect(() => {
     .productos{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+        gap: 2em;
     }
     .producto{
         display: flex;
@@ -81,7 +81,7 @@ watchEffect(() => {
 
     @media (max-width: 768px) {
         .productos {
-            grid-template-columns: repeat(1, 1 fr);
+            grid-template-columns: repeat(1, 1fr);
         }
     }
     </style>
