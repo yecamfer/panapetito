@@ -1,15 +1,16 @@
+
 <template>
-    <div class="contedor">
+    <div class="contenedor">
         <Titulo :titulo="props.categoria" />
         <div class="productos">
             <div class="producto" v-for="producto in productos" :key="producto.id">
-                <img class="foto" src="`/imagenes/${producto.imagen}`" alt="Producto">
+                <img class="foto" :src="`/imagenes/${producto.imagen}`" alt="Producto">
                 <div class="informacion">
                     <h3 class="titulo">
                         {{ producto.producto }}
                     </h3>
-                    <p class="descrpicion">
-                        {{ producto.descrpicion }}
+                    <p class="descripcion">
+                        {{ producto.descripcion }}
                     </p>
                     <p class="precio">
                         ${{ producto.precio }}
@@ -21,25 +22,25 @@
 </template>
 
 <script setup>
-import {ref, defineProps ,watchEffect} from "vue"
-import Titulo from "@/componets/TituloSeccion.vue"
+import {ref, defineProps, watchEffect} from "vue"
+import Titulo from "@/components/TituloSeccion.vue"
 import listaProductos from "@/panaderia.json"
 
 
-const props=defineProps({
-    categoria:String
+const props = defineProps({
+    categoria: String
 })
 
 const productos =ref([])
 
 watchEffect(() => {
-    producto.value = listaProductos.filter((producto) => producto.categoria ===props.categoria)
+    productos.value = listaProductos.filter((producto) => producto.categoria ===props.categoria)
 })
 </script>
 
 <style scoped>
     .contenedor{
-        padding: 3rem;
+        padding:  3rem;
         margin-bottom: 2rem;       
     }
     .productos{
@@ -51,7 +52,7 @@ watchEffect(() => {
         display: flex;
         align-items: center;
     }
-    .informacio{
+    .informacion{
         padding: 15px;
     }
     .titulo{

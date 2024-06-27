@@ -19,7 +19,6 @@ const router = createRouter({
       name: "autor",
       component: () => import("@/views/AutorView.vue")
     }
-   
   ]
 })
 
